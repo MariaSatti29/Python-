@@ -1,0 +1,119 @@
+⚫ STANDS FOR :
+         Object-Oriented Programming 
+⚫ BENEFITS:
+     · It makes code more reusable 
+     · It is easier to work with larger programs 
+     · OOP programs prevent from repeating code because a class can be defined once and reused many times 
+⚫ PRINCIPLES OF OOP's:
+  ◦ABSTRACTION          
+  ◦ENCAPSULATION
+  ◦INHERITANCE
+  ◦POLYMORPHISM
+
+   ⚪ ABSTRACTION:
+              · Abstraction in Python refers to the concept of hiding the implementation details and showing only the essential features of an object or system 
+              · It allows you to focus on the high-level functionality without worrying about the low-level details 
+
+ ⚫  EXAMPLE: 
+              ◦ Abstract class
+class Shape:
+    def area(self):
+        pass
+
+ ◦ Concrete class implementing the abstract class
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    
+    def area(self):
+        return 3.14 * self.radius * self.radius
+
+ ◦ Concrete class implementing the abstract class
+class Square(Shape):
+    def __init__(self, side):
+        self.side = side
+    
+    def area(self):
+        return self.side * self.side
+
+ ◦ Usage of abstraction
+circle = Circle(5)
+
+
+square = Square(4)
+
+print("Area of Circle:", circle.area())  # (Output: 78.5)
+print("Area of Square:", square.area())  # (Output: 16)
+
+   ⚪ENCAPSULATION:
+          · It involves bundling the data (attributes) and methods (functions) that operate on the data into a single unit,called a class
+          · It restricts direct access to some of the objects's components and can prevent the accidental modification of data 
+          · Access to the data is typically provided through public methods (getters and setters),allowing for better control over the object's state
+
+    ⚫  EXAMPLE: 
+            class Employee:
+    def __init__(self, name, age, salary):
+        self._name = name ( # _ indicates a protected attribute)
+        self._age = age
+        self._salary = salary
+
+    def get_name(self):
+        return self._name
+
+    def get_age(self):
+        return self._age
+
+    def get_salary(self):
+        return self._salary
+
+    def set_salary(self, new_salary):
+        if new_salary >= 0:
+            self._salary = new_salary
+            print(f"{self._name}'s salary has been updated to ${self._salary}")
+        else:
+            print("Invalid salary value. Salary remains unchanged.")
+
+ ◦ Example usage of encapsulation
+employee1 = Employee("Alice", 30, 50000)
+
+print(f"{employee1.get_name()} is {employee1.get_age()} years old.")
+print(f"{employee1.get_name()}'s current salary is ${employee1.get_salary()}")
+
+employee1.set_salary(55000)
+employee1.set_salary(-1000) ( # Should print an error message)
+
+print(f"{employee1.get_name()}'s final salary is ${employee1.get_salary()}")
+
+    ⚪INHERITANCE:
+                ◦ It is a concept where a new class,called a subclass or derived class,can inherit the chracteristics (attributes and methods) of an exsisting class known as superclass or base class
+                ◦ This allows the subclass to reuse code from the superclass and extend or override its functionally
+           
+    ⚫  EXAMPLE:
+               ◦ Base class
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def make_sound(self):
+        pass
+
+ ◦ Derived class 1
+class Dog(Animal):
+    def make_sound(self):
+        return "Woof!"
+
+ ◦ Derived class 2
+class Cat(Animal):
+    def make_sound(self):
+        return "Meow!"
+
+ ◦ Example usage of inheritance
+dog = Dog("Buddy")
+cat = Cat("Whiskers")
+
+print(f"{dog.name} says: {dog.make_sound()}")
+print(f"{cat.name} says: {cat.make_sound()}")
+
+
+
+            
